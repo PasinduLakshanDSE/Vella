@@ -50,7 +50,7 @@ const AdminNavBar = () => {
           </div>
           <div className="nav-button">
             <i className="fas fa-gear"></i>
-            <a href="AssetRegistration" className="nav-link">
+            <a href="/AssetRegister" className="nav-link">
               Asset Registration
             </a>
           </div>

@@ -14,6 +14,7 @@ import CompanyDashBord from "./components/Company/CompanyDashBoard/CompanyDashBo
 import CompanyNavBar from "./components/Company/CompanyNav/CompanyNav";
 import Login from "./components/Login/Login";
 import Users from "./components/Admin/Users/Users";
+import AssetRegister from "./components/Admin/AssetRegistration/AssetRegister";
 //import Users from "./components/Users/Users";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/CompanyNavBar"  element={<CompanyNavBar/>}/>
         <Route path="/Login"  element={<Login/>}/>
         <Route path="/Users"  element={<Users/>}/>
+        <Route path="/AssetRegister" element={<AssetRegister/>}/>
       </Routes>
     </div>
   );

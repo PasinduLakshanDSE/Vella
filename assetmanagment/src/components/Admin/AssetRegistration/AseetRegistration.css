@@ -8,7 +8,7 @@
   padding-top: 30px;
 }
 
-button{
+/*button{
   position: relative;
   height: 38px;
   width: 100px;
@@ -22,7 +22,7 @@ button{
 }
 button:active{
   box-shadow: none;
-}
+}*/
 .extra{
   padding-top: 20px;
   display: flex;

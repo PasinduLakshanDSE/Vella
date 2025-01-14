@@ -32,7 +32,7 @@ const Login = () => {
         selectedOption, // Include selectedOption in the payload
       });
 
-      const { selectedOption: role } = response.data;
+      const {  selectedOption: role } = response.data;
 
       // Clear input fields
       setUsername("");
@@ -41,8 +41,10 @@ const Login = () => {
 
       // Navigate based on role
       if (role === "Admin") {
+        localStorage.setItem('currentUser', JSON.stringify({ username, role }));
         navigate('/AdminDashboardPage');
       } else if (role === "CompanyAdmin") {
+        
         navigate('/CompanyDashBord');
       } else {
         setError("Unauthorized role.");

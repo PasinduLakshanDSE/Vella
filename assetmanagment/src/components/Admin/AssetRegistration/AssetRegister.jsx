@@ -12,12 +12,21 @@ const AssetRegister = () => {
   const [assetName, setAssetName] = useState("");
   const [assetUpdateDate, setAssetUpdateDate] = useState(""); // Store asset update date
   const [qrCodeData, setQrCodeData] = useState(null); // Store QR code data
+  const [trackingId, setTrackingId] = useState(""); // Store unique tracking ID
+
+  // Function to generate a unique tracking ID
+  const generateTrackingId = () => {
+    return `${company}-${department}-${Date.now()}`;
+  };
 
   const handleSubmit = () => {
     if (!name || !company || !department || !category || !assetName || !assetUpdateDate) {
       alert("Please fill in all fields before submitting.");
       return;
     }
+
+    const uniqueTrackingId = generateTrackingId();
+    setTrackingId(uniqueTrackingId);
 
     const assetData = {
       name,
@@ -26,6 +35,7 @@ const AssetRegister = () => {
       category,
       assetName,
       assetUpdateDate,
+      trackingId: uniqueTrackingId,
     };
 
     console.log("Asset Data: ", assetData);
@@ -39,6 +49,7 @@ const AssetRegister = () => {
     setAssetName("");
     setAssetUpdateDate("");
     setQrCodeData(null); // Reset QR code data
+    setTrackingId(""); // Reset tracking ID
   };
 
   const handleGenerateQR = () => {
@@ -47,6 +58,9 @@ const AssetRegister = () => {
       return;
     }
 
+    const uniqueTrackingId = trackingId || generateTrackingId();
+    setTrackingId(uniqueTrackingId);
+
     const qrData = JSON.stringify({
       name,
       company,
@@ -54,12 +68,14 @@ const AssetRegister = () => {
       category,
       assetName,
       assetUpdateDate,
+      trackingId: uniqueTrackingId,
     });
 
     setQrCodeData(qrData); // Set QR code data
   };
 
   return (
+    <div>
     <div className="asset-register">
       <div className="form-container">
         <h2>Asset Registration</h2>
@@ -120,9 +136,11 @@ const AssetRegister = () => {
               logoImage="https://via.placeholder.com/30"
               logoWidth={40}
             />
+            <p>Tracking ID: {trackingId}</p>
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };

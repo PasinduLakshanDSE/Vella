@@ -31,17 +31,19 @@ const AssetRegister = () => {
       alert("Please fill in all fields before submitting.");
       return;
     }
-
+  
     const finalCategory = category === "Other" ? customCategory : category;
-
+  
     if (!finalCategory) {
       alert("Please specify a category.");
       return;
     }
-
-    const uniqueTrackingId = generateTrackingId();
-    setTrackingId(uniqueTrackingId);
-
+  
+    if (!trackingId || !qrCodeData) {
+      alert("Please generate a Tracking ID and QR Code before submitting.");
+      return;
+    }
+  
     const assetData = {
       name,
       company,
@@ -49,12 +51,12 @@ const AssetRegister = () => {
       category: finalCategory,
       assetName,
       assetUpdateDate,
-      trackingId: uniqueTrackingId,
+      trackingId,
     };
-
+  
     console.log("Asset Data: ", assetData);
     alert("Asset Registered Successfully!");
-
+  
     // Clear the input fields
     setName(user?.username || "");
     setCompany("");
@@ -66,6 +68,7 @@ const AssetRegister = () => {
     setQrCodeData(null);
     setTrackingId("");
   };
+  
 
   const handleGenerateQR = () => {
     if (!name || !company || !department || !category || !assetName || !assetUpdateDate) {

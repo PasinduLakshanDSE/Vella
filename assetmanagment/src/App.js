@@ -9,7 +9,7 @@ import Home from "./components/Home/Home";
 import AdminNavBar from "./components/Admin/AdminNav/AdminNav";
 import DashBoard from "./components/Admin/AdminDashBoard/AdminDashboardPage";
 import AddUsersRole from "./components/Admin/AddUserRole/AddUserRole";
-import AssetRegistration from "./components/Admin/AssetRegistration/AssetRegistration";
+//import AssetRegistration from "./components/Admin/AssetRegistration/AssetRegistration";
 import CompanyDashBord from "./components/Company/CompanyDashBoard/CompanyDashBoard";
 import CompanyNavBar from "./components/Company/CompanyNav/CompanyNav";
 import Login from "./components/Login/Login";
@@ -26,7 +26,7 @@ function App() {
         <Route path="/AdminNavBar" element={<AdminNavBar/>}/>
         <Route path="/AdminDashboardPage"  element={<DashBoard/>}/>
         <Route path="/UsersRole"  element={<AddUsersRole/>}/>
-        <Route path="/AssetRegistration"  element={<AssetRegistration/>}/>
+       
         <Route path="/CompanyDashBord"  element={<CompanyDashBord/>}/>
         <Route path="/CompanyNavBar"  element={<CompanyNavBar/>}/>
         <Route path="/Login"  element={<Login/>}/>

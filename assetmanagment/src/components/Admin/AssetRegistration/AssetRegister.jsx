@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { QRCode } from "react-qrcode-logo";
-import html2canvas from "html2canvas"; // Library to capture HTML as an image
+import html2canvas from "html2canvas";
 import "./assetRegister.css";
 
 const AssetRegister = () => {
@@ -16,34 +16,32 @@ const AssetRegister = () => {
   const [qrCodeData, setQrCodeData] = useState(null);
   const [trackingId, setTrackingId] = useState("");
 
-  const qrCodeContainerRef = useRef(); // Reference to the combined QR code and tracking ID container
+  const qrCodeContainerRef = useRef();
 
-  // Predefined categories
   const categories = ["Electronics", "Furniture", "Stationery", "Other"];
+  const companys = ["Vella", "98 Acers", "Ravana Pool Club", "Flying Ravana", "Le Maas Tota", "Tea Factory"];
+  const departments = ["IT", "HR", "Kitchen", "Front Office"];
 
-  // Function to generate a unique tracking ID
-  const generateTrackingId = () => {
-    return `${company}-${department}-${Date.now()}`;
-  };
+  const generateTrackingId = () => `${company}-${department}-${Date.now()}`;
 
   const handleSubmit = () => {
     if (!name || !company || !department || !category || !assetName || !assetUpdateDate) {
       alert("Please fill in all fields before submitting.");
       return;
     }
-  
+
     const finalCategory = category === "Other" ? customCategory : category;
-  
+
     if (!finalCategory) {
       alert("Please specify a category.");
       return;
     }
-  
+
     if (!trackingId || !qrCodeData) {
       alert("Please generate a Tracking ID and QR Code before submitting.");
       return;
     }
-  
+
     const assetData = {
       name,
       company,
@@ -53,11 +51,10 @@ const AssetRegister = () => {
       assetUpdateDate,
       trackingId,
     };
-  
+
     console.log("Asset Data: ", assetData);
     alert("Asset Registered Successfully!");
-  
-    // Clear the input fields
+
     setName(user?.username || "");
     setCompany("");
     setDepartment("");
@@ -68,7 +65,6 @@ const AssetRegister = () => {
     setQrCodeData(null);
     setTrackingId("");
   };
-  
 
   const handleGenerateQR = () => {
     if (!name || !company || !department || !category || !assetName || !assetUpdateDate) {
@@ -100,13 +96,18 @@ const AssetRegister = () => {
   };
 
   const handleDownloadCombinedImage = async () => {
-    if (!qrCodeContainerRef.current) return;
+    try {
+      if (!qrCodeContainerRef.current) return;
 
-    const canvas = await html2canvas(qrCodeContainerRef.current);
-    const link = document.createElement("a");
-    link.download = "QRCodeWithTrackingID.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
+      const canvas = await html2canvas(qrCodeContainerRef.current);
+      const link = document.createElement("a");
+      link.download = "QRCodeWithTrackingID.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    } catch (error) {
+      console.error("Failed to download the QR code image:", error);
+      alert("Error occurred while downloading the QR code. Please try again.");
+    }
   };
 
   return (
@@ -120,20 +121,30 @@ const AssetRegister = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your Name"
-              readOnly={!!user}
+              readOnly={Boolean(user)}
             />
-            <input
-              type="text"
+            <select
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              placeholder="Enter Company"
-            />
-            <input
-              type="text"
+            >
+              <option value="">Select Company</option>
+              {companys.map((com) => (
+                <option key={com} value={com}>
+                  {com}
+                </option>
+              ))}
+            </select>
+            <select
               value={department}
               onChange={(e) => setDepartment(e.target.value)}
-              placeholder="Enter Department"
-            />
+            >
+              <option value="">Select Department</option>
+              {departments.map((dep) => (
+                <option key={dep} value={dep}>
+                  {dep}
+                </option>
+              ))}
+            </select>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}

@@ -6,14 +6,14 @@ import './login.css';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [selectedOption, setSelectedOption] = useState("Admin"); // Default option
+
   const [error, setError] = useState("");
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
 
   const validateForm = (e) => {
     e.preventDefault();
-    if (!username || !password || !selectedOption) {
+    if (!username || !password) {
       setError("All fields are required.");
       setShowError(true);
       return false;
@@ -24,27 +24,22 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm(e)) return;
-
+  
     try {
       const response = await axios.post('http://localhost:8000/api/users/login', {
         username,
         password,
-        selectedOption, // Include selectedOption in the payload
       });
-
-      const {  selectedOption: role } = response.data;
-
-      // Clear input fields
+  
+      const user = response.data; // Access the returned user object
       setUsername("");
       setPassword("");
       setShowError(false);
-
-      // Navigate based on role
-      if (role === "Admin") {
-        localStorage.setItem('currentUser', JSON.stringify({ username, role }));
+  
+      if (user.selectedOption === "Admin") {
+        localStorage.setItem('currentUser', JSON.stringify({ username: user.name, role: user.selectedOption }));
         navigate('/AdminDashboardPage');
-      } else if (role === "CompanyAdmin") {
-        
+      } else if (user.selectedOption === "CompanyAdmin") {
         navigate('/CompanyDashBord');
       } else {
         setError("Unauthorized role.");
@@ -56,6 +51,7 @@ const Login = () => {
       setShowError(true);
     }
   };
+  
 
   return (
     <div className="main">
@@ -79,14 +75,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <select
-              value={selectedOption}
-              onChange={(e) => setSelectedOption(e.target.value)}
-              className="role-dropdown"
-            >
-              <option value="Admin">Admin</option>
-              <option value="CompanyAdmin">Company Admin</option>
-            </select>
+            
             <button type="submit" className="sign-up-button">
               LOGIN
             </button>

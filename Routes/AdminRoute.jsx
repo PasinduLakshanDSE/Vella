@@ -32,10 +32,10 @@ router.post("/", async (req, res) => {
 
 
 router.post("/login", async (req, res) => {
-  const { email, password, selectedOption } = req.body;
+  const { email, password } = req.body;
 
   try {
-    const user = await User.findOne({ email, password, selectedOption });
+    const user = await User.findOne({ email, password });
     if (user) {
       const temp = {
         name: user.firstName,

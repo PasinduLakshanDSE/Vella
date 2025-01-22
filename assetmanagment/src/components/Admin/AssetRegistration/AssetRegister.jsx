@@ -13,6 +13,7 @@ const AssetRegister = () => {
   const [customCategory, setCustomCategory] = useState("");
   const [assetName, setAssetName] = useState("");
   const [assetUpdateDate, setAssetUpdateDate] = useState("");
+  const [serialNumber, setSerialNumber] = useState("");
   const [qrCodeData, setQrCodeData] = useState(null);
   const [trackingId, setTrackingId] = useState("");
 
@@ -22,11 +23,48 @@ const AssetRegister = () => {
   const companys = ["Vella", "98 Acers", "Ravana Pool Club", "Flying Ravana", "Le Maas Tota", "Tea Factory"];
   const departments = ["IT", "HR", "Kitchen", "Front Office"];
 
-  const generateTrackingId = () => `${company}-${department}-${Date.now()}`;
+  const companyAbbreviations = {
+    "Vella": "V",
+    "98 Acers": "98",
+    "Ravana Pool Club": "RPC",
+    "Flying Ravana": "FR",
+    "Le Maas Tota": "LMT",
+    "Tea Factory": "TF",
+  };
+
+  const departmentAbbreviations = {
+    "IT": "IT",
+    "HR": "HR",
+    "Kitchen": "KT",
+    "Front Office": "FO",
+  };
+
+ 
+
+const generateTrackingId = () => {
+  const companyAbbr = companyAbbreviations[company] || company;
+  const departmentAbbr = departmentAbbreviations[department] || department;
+
+  const randomNum = String(Math.floor(Math.random() * 100000)).padStart(5, "0");
+
+
+  if (serialNumber) {
+    const serialSuffix = serialNumber.slice(-4).padStart(4, "0");
+    return `${companyAbbr}-${departmentAbbr}-${serialSuffix}`;
+  }
+
+  return `${companyAbbr}-${departmentAbbr}-${randomNum}`;
+};
+
 
   const handleSubmit = () => {
     if (!name || !company || !department || !category || !assetName || !assetUpdateDate) {
       alert("Please fill in all fields before submitting.");
+      return;
+    }
+
+    if (category === "Electronics" && !serialNumber) {
+      alert("Please enter a Serial Number for Electronics.");
       return;
     }
 
@@ -49,6 +87,7 @@ const AssetRegister = () => {
       category: finalCategory,
       assetName,
       assetUpdateDate,
+      serialNumber: category === "Electronics" ? serialNumber : null,
       trackingId,
     };
 
@@ -62,6 +101,7 @@ const AssetRegister = () => {
     setCustomCategory("");
     setAssetName("");
     setAssetUpdateDate("");
+    setSerialNumber("");
     setQrCodeData(null);
     setTrackingId("");
   };
@@ -69,6 +109,11 @@ const AssetRegister = () => {
   const handleGenerateQR = () => {
     if (!name || !company || !department || !category || !assetName || !assetUpdateDate) {
       alert("Please fill in all fields before generating the QR code.");
+      return;
+    }
+
+    if (category === "Electronics" && !serialNumber) {
+      alert("Please enter a Serial Number for Electronics.");
       return;
     }
 
@@ -89,6 +134,7 @@ const AssetRegister = () => {
       category: finalCategory,
       assetName,
       assetUpdateDate,
+      serialNumber: category === "Electronics" ? serialNumber : null,
       trackingId: uniqueTrackingId,
     });
 
@@ -162,6 +208,14 @@ const AssetRegister = () => {
                 value={customCategory}
                 onChange={(e) => setCustomCategory(e.target.value)}
                 placeholder="Enter Category"
+              />
+            )}
+            {category === "Electronics" && (
+              <input
+                type="text"
+                value={serialNumber}
+                onChange={(e) => setSerialNumber(e.target.value)}
+                placeholder="Enter Serial Number"
               />
             )}
             <input

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './assetCategorization.css';
+import "./assetCategorization.css";
 
 const Categorization = () => {
   const [category, setCategory] = useState(""); // State for selected category
@@ -51,6 +51,8 @@ const Categorization = () => {
                 setCategory(e.target.value); // Update category
                 setTypes(""); // Reset types when category changes
                 setSelectedParts([]); // Reset selected parts
+                setCustomCategory(""); // Reset custom category
+                setCustomType(""); // Reset custom type
               }}
             >
               <option value="">Select Category</option>
@@ -60,6 +62,8 @@ const Categorization = () => {
                 </option>
               ))}
             </select>
+
+            {/* Input for custom category */}
             {category === "Other" && (
               <input
                 type="text"
@@ -69,11 +73,14 @@ const Categorization = () => {
               />
             )}
 
-            {/* Type Dropdown */}
-            {category && (
+            {/* Type Input or Dropdown */}
+            {category && category !== "Other" && (
               <select
                 value={types}
-                onChange={(e) => setTypes(e.target.value)}
+                onChange={(e) => {
+                  setTypes(e.target.value);
+                  setCustomType(""); // Reset custom type when type changes
+                }}
               >
                 <option value="">Select Type</option>
                 {typesList.map((typ) => (
@@ -83,7 +90,18 @@ const Categorization = () => {
                 ))}
               </select>
             )}
-            {types === "Other" && (
+
+            {category === "Other" && (
+              <input
+                type="text"
+                value={customType}
+                onChange={(e) => setCustomType(e.target.value)}
+                placeholder="Enter Type"
+              />
+            )}
+
+            {/* Input for custom type if "Other" is selected in the dropdown */}
+            {types === "Other" && category !== "Other" && (
               <input
                 type="text"
                 value={customType}

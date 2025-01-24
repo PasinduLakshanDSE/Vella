@@ -15,7 +15,10 @@ import CompanyNavBar from "./components/Company/CompanyNav/CompanyNav";
 import Login from "./components/Login/Login";
 import Users from "./components/Admin/Users/Users";
 import AssetRegister from "./components/Admin/AssetRegistration/AssetRegister";
+import Categorization from "./components/Admin/AssetCategorization/Assetcategorization";
+
 //import Users from "./components/Users/Users";
+
 
 function App() {
   return (
@@ -32,6 +35,7 @@ function App() {
         <Route path="/Login"  element={<Login/>}/>
         <Route path="/Users"  element={<Users/>}/>
         <Route path="/AssetRegister" element={<AssetRegister/>}/>
+        <Route path="/category" element={<Categorization/>}/>
       </Routes>
     </div>
   );

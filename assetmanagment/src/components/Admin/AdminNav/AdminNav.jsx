@@ -57,10 +57,19 @@ const AdminNavBar = () => {
           <hr />
           <div className="nav-button">
             <i className="fas fa-user"></i>
+            <a href="/category" className="nav-link">
+            Asset Categorize
+            </a>
+          </div>
+          <div className="nav-button">
+            <i className="fas fa-user"></i>
             <a href="/Users" className="nav-link">
               Users
             </a>
           </div>
+          <hr/>
+         
+          <hr/>
           <div id="nav-content-highlight"></div>
         </div>
         <input id="nav-footer-toggle" type="checkbox" />
@@ -102,6 +111,7 @@ const AdminNavBar = () => {
                 </>
               ) : null}
             </div>
+            
           </div>
         </div>
       </div>

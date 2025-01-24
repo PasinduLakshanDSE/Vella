@@ -16,11 +16,17 @@ const dbConfig = require("./DB.jsx");
 const userRoute = require("./Routes/AdminRoute.jsx");
 //const userLoginRoute = require("./Routes/UserLoginRoute.jsx") // Import the new Service route
 
+const categoryRoute = require("./Routes/CategoryRoute.jsx");
+app.use("/api/categories", categoryRoute);
+
 
 
 // Register routes
 app.use("/api/users", userRoute);
 //app.use("/api/users", userLoginRoute);
+
+
+
 
 
 

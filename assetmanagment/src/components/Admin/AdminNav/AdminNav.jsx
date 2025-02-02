@@ -44,7 +44,7 @@ const AdminNavBar = () => {
           </div>
           <div className="nav-button">
           <i className="fas fa-handshake "></i>
-            <Link to="/UsersRole" className="nav-link">
+            <Link to="/AddUsersRole" className="nav-link">
               Add Users Role
             </Link>
           </div>

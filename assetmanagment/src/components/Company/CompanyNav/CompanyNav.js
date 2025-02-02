@@ -28,7 +28,7 @@ const CompanyNavBar = () => {
           </div>
           <div className="nav-button">
             <i className="fas fa-calendar-days "></i>
-            <Link to="/UsersRole" className="nav-link"> Add Users Role</Link>
+            <Link to="/CompanyUserRole" className="nav-link"> Add Users Role</Link>
           </div>
           <div className="nav-button">
             <i className="fas fa-gear"></i>

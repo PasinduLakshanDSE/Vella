@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { QRCode } from "react-qrcode-logo";
 import html2canvas from "html2canvas";
-import "./assetRegister.css";
+import "./AssetRegister.css";
 
 const AssetRegister = () => {
   const user = JSON.parse(localStorage.getItem("currentUser"));

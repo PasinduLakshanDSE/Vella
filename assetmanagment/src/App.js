@@ -17,6 +17,7 @@ import Users from "./components/Admin/Users/Users";
 import AssetRegister from "./components/Admin/AssetRegistration/AssetRegister";
 import Categorization from "./components/Admin/AssetCategorization/Assetcategorization";
 import CompanyUserRole from "./components/Company/CompanyUserRole/CompanyUserRole";
+import CompanyAssetRegister from "./components/Company/CompanyAssetRegistration/CompanyAssetRegister";
 
 //import Users from "./components/Users/Users";
 
@@ -30,9 +31,10 @@ function App() {
         <Route path="/AdminNavBar" element={<AdminNavBar/>}/>
         <Route path="/AdminDashboardPage"  element={<DashBoard/>}/>
         <Route path="/AddUsersRole"  element={<AddUsersRole/>}/>
-        <Route pathe="/ComanyUserrole" elemnt={<CompanyUserRole/>}/>
+        <Route path="/CompanyUserRole" element={<CompanyUserRole/>}/>
         <Route path="/CompanyDashBord"  element={<CompanyDashBord/>}/>
         <Route path="/CompanyNavBar"  element={<CompanyNavBar/>}/>
+        <Route path="/CompanyAssetRegister" element={<CompanyAssetRegister/>}/>
         <Route path="/Login"  element={<Login/>}/>
         <Route path="/Users"  element={<Users/>}/>
         <Route path="/AssetRegister" element={<AssetRegister/>}/>

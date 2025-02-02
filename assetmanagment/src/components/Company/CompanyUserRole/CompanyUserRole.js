@@ -57,7 +57,7 @@ const CompanyUserRole = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:8000/api/users', userData);
+            await axios.post('http://localhost:8000/api/users', userData);
             alert("User created successfully");
             handleReset();
         } catch (error) {

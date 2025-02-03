@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./users.css";
+import "./CompanyUsers.css";
 import axios from "axios";
 
-const Users = () => {
+const CompanyUsers = () => {
   const [users, setUsers] = useState([]);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
@@ -67,7 +67,7 @@ const Users = () => {
           <thead className="bs">
             <tr>
               <th>ID</th>
-              <th>Name</th>
+              <th> Name</th>
               <th>Email</th>
               <th>Designation</th>
               <th>Contact</th>
@@ -82,7 +82,7 @@ const Users = () => {
               users.map((user) => (
                 <tr key={user._id}>
                   <td>{user._id}</td>
-                  <td>{user.Name}</td>
+                  <td>{user.tName}</td>
                   <td>{user.email}</td>
                   <td>{user.designation}</td>
                   <td>{user.contact}</td>
@@ -255,4 +255,4 @@ const EditUserModal = ({ show, onClose, user, onUpdate }) => {
   );
 };
 
-export default Users;
+export default CompanyUsers;

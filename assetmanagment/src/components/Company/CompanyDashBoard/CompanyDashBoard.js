@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import '../CompanyNav/companynav.css'
+import '../CompanyDashBoard/CompanyDashBoard'
 import CompanyNavBar from "../CompanyNav/CompanyNav";
 
 
@@ -10,6 +10,8 @@ const CompanyDashBord = () => {
   const [techniciansCount, setTechniciansCount] = useState(0);
   const [servicesCount, setServicesCount] = useState(0);
   const [usersCount, setUsers] = useState(0);
+  const [showNavBar, setShowNavBar] = useState(true); // Track NavBar visibility
+
 
   useEffect(() => {
     const fetchDashboardData = async () => {
@@ -48,7 +50,7 @@ const CompanyDashBord = () => {
       <div className="dashboard">
         <div className="dashboard-header">
           <h1 className="title">Dashboard</h1>
-          <p>Home / Dashboard</p>
+          
         </div>
 
         <div className="dashboard-cards">

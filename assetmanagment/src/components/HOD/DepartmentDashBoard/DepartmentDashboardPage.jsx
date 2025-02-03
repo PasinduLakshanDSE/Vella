@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import './admindashboard.css'
-import AdminNavBar from "../AdminNav/AdminNav";
+import './Departmentdashboard.css'
+import AdminNavBar from "../DepartmentNav/DepartmentNav";
 
 
-const DashBoard = () => {
+const DepartmentDashBoard = () => {
   const [bookings, setBookings] = useState([]);
   const [techniciansCount, setTechniciansCount] = useState(0);
   const [servicesCount, setServicesCount] = useState(0);
@@ -72,4 +72,4 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default DepartmentDashBoard;

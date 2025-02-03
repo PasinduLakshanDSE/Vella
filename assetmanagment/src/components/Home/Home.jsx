@@ -18,7 +18,7 @@ const Home = () => {
       <nav>
         <ul className="nav-links">
           <li>
-            <Link to="/">Products</Link>
+            <Link to="/DepartmentNavBar">Products</Link>
           </li>
           <li>
             <Link to="/CompanyDashBord">About Us</Link>

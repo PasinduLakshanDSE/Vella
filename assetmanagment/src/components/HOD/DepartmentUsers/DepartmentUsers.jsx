@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./users.css";
+import "./DepartmentUsers.css";
 import axios from "axios";
 
-const Users = () => {
+const DepartmentUsers = () => {
   const [users, setUsers] = useState([]);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
@@ -255,4 +255,4 @@ const EditUserModal = ({ show, onClose, user, onUpdate }) => {
   );
 };
 
-export default Users;
+export default DepartmentUsers;

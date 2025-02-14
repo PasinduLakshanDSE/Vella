@@ -1,17 +1,17 @@
+
 import React from 'react';
-import './companynav.css';
+import './DepartmentNav.css';
 import { Link } from 'react-router-dom';
 
-const CompanyNavBar = ({ toggleNavBar }) => {
-   
-   
+const DepartmentNav = ({ toggleNavBar }) => {
+  
   return (
     <div className='main'>
       <div id="nav-bar">
         <input id="nav-toggle" type="checkbox" />
         <div id="nav-header">
           <a id="nav-title" href="https://www.vellaglobal.com/" target="_blank" rel="noopener noreferrer">
-            Company
+          Department
           </a>
           <label htmlFor="nav-toggle" style={{ marginRight: '30px' }} onClick={toggleNavBar}>
             <span id="nav-toggle-burger"></span>
@@ -21,19 +21,16 @@ const CompanyNavBar = ({ toggleNavBar }) => {
         <div id="nav-content">
           <div className="nav-button">
             <i className="fas fa-palette"></i>
-            <Link to="/CompanyDashBoard" className="nav-link">Dashboard</Link>
+            <Link to="/DepartmentDashBoard" className="nav-link">Dashboard</Link>
           </div>
-          <div className="nav-button">
-            <i className="fas fa-calendar-days"></i>
-            <Link to="/CompanyUserRole" className="nav-link">Add Users</Link>
-          </div>
+         
           <div className="nav-button">
             <i className="fas fa-gear"></i>
-            <Link to="/CompanyAssetRegister" className="nav-link"> Asset Register</Link>
+            <Link to="/DepartmentAssetRegister" className="nav-link"> Asset Register</Link>
           </div>
           <div className="nav-button">
             <i className="fas fa-user"></i>
-            <a href="/CompanyUsers" className="nav-link">Company Users</a>
+            <a href="/DepartmentUsers" className="nav-link">Company Users</a>
           </div>
           <div className="nav-button">
             <i className="fas fa-handshake"></i>
@@ -46,4 +43,4 @@ const CompanyNavBar = ({ toggleNavBar }) => {
   );
 };
 
-export default CompanyNavBar;
+export default DepartmentNav;

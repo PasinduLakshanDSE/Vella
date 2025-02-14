@@ -9,7 +9,6 @@ import Home from "./components/Home/Home";
 import AdminNavBar from "./components/Admin/AdminNav/AdminNav";
 import DashBoard from "./components/Admin/AdminDashBoard/AdminDashboardPage";
 import AddUsersRole from "./components/Admin/AddUserRole/AddUserRole";
-//import AssetRegistration from "./components/Admin/AssetRegistration/AssetRegistration";
 import CompanyDashBord from "./components/Company/CompanyDashBoard/CompanyDashBoard";
 import CompanyNavBar from "./components/Company/CompanyNav/CompanyNav";
 import Login from "./components/Login/Login";
@@ -20,12 +19,12 @@ import CompanyUserRole from "./components/Company/CompanyUserRole/CompanyUserRol
 import CompanyAssetRegister from "./components/Company/CompanyAssetRegistration/CompanyAssetRegister";
 import CompanyUsers from "./components/Company/CompanyUsers/CompanyUsers";
 import DepartmentAssetRegister from "./components/HOD/DepartmentAssetRegistration/DepartmentAssetRegister";
-import DepartmentDashBoard from "./components/HOD/DepartmentDashBoard/DepartmentDashboardPage";
+import DepartmentDashBoard from "./components/HOD/DepartmentDashBoard/DepartmentDashBoard";
 import DepartmentNavBar from "./components/HOD/DepartmentNav/DepartmentNav";
 import DepartmentUsers from "./components/HOD/DepartmentUsers/DepartmentUsers";
+import DepartmentNav from "./components/HOD/DepartmentNav/DepartmentNav";
 
 
-//import Users from "./components/Users/Users";
 
 
 function App() {
@@ -48,7 +47,7 @@ function App() {
         <Route path="/category" element={<Categorization/>}/>
         <Route path="/DepartmentAssetRegister" element={<DepartmentAssetRegister/>}/>
         <Route path="/DepartmentDashBoard" element={<DepartmentDashBoard/>}/>
-        <Route path="/DepartmentNavBar" element={<DepartmentNavBar/>}/>
+        <Route path="/DepartmentNav" element={<DepartmentNav/>}/>
         <Route path="/DepartmentUsers" element={<DepartmentUsers/>}/>
       </Routes>
     </div>

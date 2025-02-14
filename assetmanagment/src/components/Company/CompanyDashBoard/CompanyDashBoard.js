@@ -10,7 +10,7 @@ const CompanyDashBord = () => {
   const [techniciansCount, setTechniciansCount] = useState(0);
   const [servicesCount, setServicesCount] = useState(0);
   const [usersCount, setUsers] = useState(0);
-  const [showNavBar, setShowNavBar] = useState(true); // Track NavBar visibility
+
 
 
   useEffect(() => {
@@ -38,9 +38,9 @@ const CompanyDashBord = () => {
 
   const cards = [
     { count: bookings.length, label: "Total Asset", color: "blue", icon: <i className="fas fa-calendar-days si"></i> },
-    { count: techniciansCount, label: "Total Department", color: "green", icon: <i className="fas fa-gear si"></i> },
-    { count: servicesCount, label: "Total Users", color: "teal", icon: <i className="fas fa-handshake si"></i> },
-    { count: usersCount, label: "Total Users", color: "red", icon: <i className="fas fa-user si"></i> },
+    { count: techniciansCount, label: "Total categories ", color: "green", icon: <i className="fas fa-gear si"></i> },
+    { count: servicesCount, label: "Total Department", color: "teal", icon: <i className="fas fa-handshake si"></i> },
+    { count: usersCount, label: "Total Users ", color: "red", icon: <i className="fas fa-user si"></i> },
   ];
 
   return (

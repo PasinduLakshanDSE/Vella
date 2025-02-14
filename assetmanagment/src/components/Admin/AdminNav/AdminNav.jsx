@@ -26,8 +26,7 @@ const AdminNavBar = () => {
             id="nav-title"
             href="https://www.vellaglobal.com/"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Admin
           </a>
           <label htmlFor="nav-toggle" style={{ marginRight: '30px' }}>

@@ -18,7 +18,7 @@ const Home = () => {
       <nav>
         <ul className="nav-links">
           <li>
-            <Link to="/DepartmentNavBar">Products</Link>
+            <Link to="/DepartmentDashBoard">Products</Link>
           </li>
           <li>
             <Link to="/CompanyDashBord">About Us</Link>
@@ -42,23 +42,27 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="features">
-        <h2>Our Features</h2>
-        <div className="feature-cards">
-          <div className="feature-card">
-            <h3>Asset Tracking</h3>
-            <p>Keep track of all assets in one place.</p>
-          </div>
-          <div className="feature-card">
-            <h3>Ownership Transfer</h3>
-            <p>Easily transfer asset ownership securely.</p>
-          </div>
-          <div className="feature-card">
-            <h3>Real-time Dashboard</h3>
-            <p>View key metrics and insights instantly.</p>
-          </div>
-        </div>
-      </section>
+<section id="features" className="features">
+  <h2>Our Features</h2>
+  <div className="feature-cards">
+    <div className="feature-card">
+      <img src="/assetmanagment/public/assRegicon.png" alt="Asset Register" />
+      <h3>Asset Register</h3>
+      <p>Keep all Aseet list  in one place.</p>
+    </div>
+    <div className="feature-card">
+      <img src="/assetmanagment/public/OwershTrafen.png" alt="Ownership Transfer" />
+      <h3>Ownership Transfer</h3>
+      <p>Easily transfer asset ownership securely.</p>
+    </div>
+    <div className="feature-card">
+      <img src="/assetmanagment/public/RetimeDasrd.png" alt="Real-time Dashboard" />
+      <h3>Real-time Dashboard</h3>
+      <p>View key metrics and insights instantly.</p>
+    </div>
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="footer">
@@ -69,4 +73,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
